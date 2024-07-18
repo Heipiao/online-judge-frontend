@@ -20,7 +20,7 @@ export default {
     submitCode() {
       const problemId = this.$route.params.id
       console.log("About to submit code for problem:", problemId)
-      axios.post('http://localhost:5000/api/submit', {
+      axios.post('/api/submit', {
         code: this.code,
         problem_id: problemId
       })

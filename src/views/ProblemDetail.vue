@@ -82,7 +82,7 @@ export default {
   },
   created() {
     const problemId = this.$route.params.id
-    axios.get(`http://localhost:5000/api/problems/${problemId}`)
+    axios.get(`/api/problems/${problemId}`)
       .then(response => {
         this.problem = response.data
       })

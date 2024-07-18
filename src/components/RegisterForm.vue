@@ -37,7 +37,7 @@
       async onSubmit() {
         console.log('Submitting register form:', this.registerForm);
         try {
-          const response = await axios.post('http://localhost:5000/api/register', this.registerForm);
+          const response = await axios.post('/api/register', this.registerForm);
           this.$emit('register-success');
           console.log('注册成功:', response.data);
         } catch (error) {

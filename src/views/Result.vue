@@ -18,7 +18,7 @@ export default {
   created() {
     const submissionId = this.$route.params.id
     console.log("Component created, about to fetch result for submission:", submissionId)
-    axios.get(`http://localhost:5000/api/result/${submissionId}`)
+    axios.get(`/api/result/${submissionId}`)
       .then(response => {
         console.log("Fetched result:", response.data)
         this.result = response.data.result

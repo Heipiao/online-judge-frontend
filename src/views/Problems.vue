@@ -44,7 +44,7 @@ export default {
   },
   created() {
     console.log("Component created, about to fetch problems.")
-    axios.get('http://localhost:5000/api/problems')
+    axios.get('/api/problems')
       .then(response => {
         console.log("Fetched problems:", response.data)
         this.problems = response.data
