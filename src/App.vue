@@ -4,31 +4,32 @@
       <el-row>
         <el-col :span="24">
           <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" @select="handleSelect">
-            <el-menu-item index="1" @click="goToHome">Home</el-menu-item>
-            <el-menu-item index="2" @click="goToProblems">Problems</el-menu-item>
-            <el-menu-item index="3" @click="goToProfile">Profile</el-menu-item>
+            <!-- Left side menu items -->
+            <template v-slot:default>
+              <div class="menu-left">
+                <el-menu-item index="1" @click="goToHome">Home</el-menu-item>
+                <el-menu-item index="2" @click="goToProblems">Problems</el-menu-item>
+                <el-menu-item index="3" @click="goToProfile">Profile</el-menu-item>
+              </div>
+              <div class="menu-right">
+                <el-menu-item index="4" @click="goToLogin">Login</el-menu-item>
+                <el-menu-item index="5" @click="goToRegister">Register</el-menu-item>
+              </div>
+            </template>
           </el-menu>
         </el-col>
-       
       </el-row>
     </el-header>
     <router-view />
-
-   
   </div>
 </template>
 
 <script>
-
-
 export default {
   name: 'App',
- 
   data() {
     return {
       activeIndex: '1',
-      loginDialogVisible: false,
-      registerDialogVisible: false,
     };
   },
   methods: {
@@ -50,27 +51,47 @@ export default {
       this.$router.push('/profile');
       this.activeIndex = '3';
     },
-   
+    goToLogin() {
+      console.log('Navigating to Login');
+      this.$router.push('/login');
+      this.activeIndex = '4';
+    },
+    goToRegister() {
+      console.log('Navigating to Register');
+      this.$router.push('/register');
+      this.activeIndex = '5';
+    },
   },
 };
 </script>
 
 <style>
+.el-header {
+  background-color: #fff;
+}
+
 .el-menu-demo {
-  background-color: #545c64;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: transparent;
+  border: none;
+}
+
+.menu-left {
+  display: flex;
+}
+
+.menu-right {
+  display: flex;
+}
+
+.el-menu-item {
   color: #fff;
 }
-.el-menu-demo .el-menu-item {
-  color: #fff;
-}
-.el-menu-demo .el-menu-item.is-active {
+
+.el-menu-item.is-active {
   background-color: #409eff;
   color: #fff;
-}
-.align-right {
-  text-align: right;
-}
-.nav-button {
-  margin-left: 10px;
 }
 </style>

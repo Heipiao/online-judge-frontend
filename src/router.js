@@ -4,6 +4,8 @@ import ProblemList from './views/Problems.vue'
 import ProblemDetailPage from './views/ProblemDetail.vue'
 import SubmitForm from './views/Submit.vue'
 import ResultPage from './views/Result.vue'
+import Login from '@/views/UserLogin.vue';
+import Register from '@/views/UserRegister.vue';
 
 const routes = [
   {
@@ -30,7 +32,17 @@ const routes = [
     path: '/result/:id',
     name: 'result',
     component: ResultPage
-  }
+  },
+  {
+    path: '/login',
+    name: 'Login',
+    component: Login,
+  },
+  {
+    path: '/register',
+    name: 'Register',
+    component: Register,
+  },
 ]
 
 const router = createRouter({
