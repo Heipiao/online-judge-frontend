@@ -33,7 +33,7 @@ export default {
   },
   methods: {
     register() {
-      axios.post('http://localhost:5000/register', this.registerForm)
+      axios.post('/api/register', this.registerForm)
         .then(() => {
           this.$router.push('/login');
         })

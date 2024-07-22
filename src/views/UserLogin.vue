@@ -29,7 +29,7 @@
     },
     methods: {
       login() {
-        axios.post('http://localhost:5000/login', this.loginForm)
+        axios.post('/api/login', this.loginForm)
           .then(({ data }) => {
             localStorage.setItem('access_token', data.access_token);
             this.$router.push('/profile');
